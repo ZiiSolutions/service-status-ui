@@ -1,0 +1,71 @@
+@import "media-queries";
+@import "common";
+@import "font-classes";
+
+// Common styling for traffic light circle
+@mixin circle-styling($color) {
+  $circle-size: 70px;
+  background-color: $color;
+  border-radius: 50%;
+  width: $circle-size;
+  height: $circle-size;
+}
+
+.figure-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $pearl-white;
+  padding: 30px;
+  border-radius: 5px;
+  padding: 40px 30px;
+  height: 202px;
+  width: 110px;
+  box-shadow: 1px 1px 8px 2px $light-grey;
+
+  .light-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 110px;
+
+    .red-light {
+      @include circle-styling($red);
+      opacity: 0.2;
+    }
+
+    .green-light {
+      @include circle-styling($green);
+      opacity: 0.2;
+      margin-top: 10px;
+    }
+    .red-active,
+    .green-active {
+      opacity: 1;
+    }
+
+    .red-active {
+      animation: zoom-in-zoom-out 0.8s ease infinite;
+    }
+  }
+
+  .caption {
+    margin-top: 15px;
+    @extend .heading-2;
+  }
+}
+
+// Animation configuration for red light
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}

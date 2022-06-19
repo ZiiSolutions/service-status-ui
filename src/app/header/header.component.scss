@@ -1,0 +1,16 @@
+@import "media-queries";
+@import "common";
+@import "font-classes";
+
+.header-container {
+  border-bottom: 1px solid #f0f2f7;
+  text-align: center;
+  background-color: $orange;
+  padding: 30px 14px;
+
+  h1 {
+    @extend .heading-1;
+    color: white;
+    margin: 0;
+  }
+}

@@ -1,0 +1,8 @@
+<figure class="figure-container">
+  <section class="light-container">
+    <div class="red-light" [class.red-active]="!item.isHealthy"></div>
+    <div class="green-light" [class.green-active]="item.isHealthy"></div>
+  </section>
+
+  <figcaption class="caption">{{ item.name }}</figcaption>
+</figure>

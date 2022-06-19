@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+// Preserves useful defaults and normalise styles for wide range of elements. Improving cross browser consistency.
+@import "~normalize.css";
+
+// Mixins & common css
+@import "media-queries";
+@import "common";
+@import "font-classes";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
