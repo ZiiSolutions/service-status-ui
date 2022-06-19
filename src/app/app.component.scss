@@ -1,0 +1,32 @@
+@import "media-queries";
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .status-container {
+    display: flex;
+
+    @include respond-above(sm) {
+      display: inline-grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-above(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include respond-above(lg) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+  }
+}
