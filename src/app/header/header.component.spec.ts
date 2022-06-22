@@ -1,4 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  getElementByCss,
+  getElementsByCss,
+  getTextContent,
+} from '../util/test-util';
 
 import { HeaderComponent } from './header.component';
 
@@ -8,9 +13,8 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
-    })
-    .compileComponents();
+      declarations: [HeaderComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +25,15 @@ describe('HeaderComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display a title reading Service Monitor', () => {
+    expect(getTextContent(getElementByCss(fixture, 'h1'))).toEqual(
+      'Service Monitor'
+    );
+  });
+
+  it('should display a header tag so that the HTML is semantically correct', () => {
+    expect(getElementsByCss(fixture, 'header')).toBeTruthy();
   });
 });

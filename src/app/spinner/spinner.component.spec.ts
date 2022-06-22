@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { getElementByCss } from '../util/test-util';
 
 import { SpinnerComponent } from './spinner.component';
 
@@ -8,9 +9,8 @@ describe('SpinnerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SpinnerComponent ]
-    })
-    .compileComponents();
+      declarations: [SpinnerComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +21,10 @@ describe('SpinnerComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display 2 cubes for depicting a spinner', () => {
+    expect(getElementByCss(fixture, '.cube1')).toBeTruthy();
+    expect(getElementByCss(fixture, '.cube2')).toBeTruthy();
   });
 });

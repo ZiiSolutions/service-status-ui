@@ -5,6 +5,8 @@
   <p *ngIf="errorMessage">{{ errorMessage }}</p>
 
   <!-- Main content displaying curation of service status -->
+  <!-- This can be extracted to it's own component to make it modular -->
+  <!-- For simiplicity leaving this as is -->
   <ul
     class="status-container"
     *ngIf="items$ | async as cards; else loadingTemplate"

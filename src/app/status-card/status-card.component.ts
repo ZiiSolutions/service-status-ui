@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ServiceStatusDetail } from '../app-interfaces';
 
 @Component({
@@ -8,5 +8,4 @@ import { ServiceStatusDetail } from '../app-interfaces';
 })
 export class StatusCardComponent {
   @Input() item: ServiceStatusDetail;
-  constructor() {}
 }

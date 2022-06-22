@@ -6,6 +6,7 @@ import {
   interval,
   Observable,
   retry,
+  share,
   startWith,
   Subject,
   switchMap,
@@ -22,12 +23,13 @@ export class StatusApiService {
   constructor(
     private appConfig: AppConfigService,
     private httpClient: HttpClient
-  ) { }
+  ) {}
   // Stop polling to avoid memory leaks
   private readonly _stopPolling = new Subject<boolean>();
+  private readonly _pollingIntervalTime = 10000;
 
   fetchAllServiceChecks(): Observable<ApiStatusResponse> {
-    return interval(10000).pipe(
+    return interval(this._pollingIntervalTime).pipe(
       startWith(0),
       takeUntil(this._stopPolling),
       switchMap(() =>
@@ -35,6 +37,7 @@ export class StatusApiService {
           .get<ApiStatusResponse>(`${this.appConfig.apiBaseUrl}/status`)
           .pipe(
             retry(3),
+            share(),
             catchError((err) =>
               throwError(() => this.retrieveErrorMessage(err))
             )
